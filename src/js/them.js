@@ -15,12 +15,15 @@ const changeTheme = (theme) => {
         refs.body.classList.remove(Theme.LIGHT);
         refs.body.classList.add(Theme.DARK);
         refs.selectTheme.checked = true;
+        
     } else {
         refs.body.classList.add(Theme.LIGHT);
         refs.body.classList.remove(Theme.DARK);
         localStorage.setItem(STORAGE_KEY, Theme.LIGHT);
     }
 };
+
+changeTheme(localStorage.getItem(STORAGE_KEY));
 
 function onchangeThemeClick() {
   const newTheme = refs.selectTheme.checked ? Theme.DARK : Theme.LIGHT;
